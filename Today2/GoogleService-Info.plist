@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>626975709517-8s8bo7bg853d6909pu2mi7ufb5iqsu40.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.626975709517-8s8bo7bg853d6909pu2mi7ufb5iqsu40</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCQlj_sTTpga9uNEoyQNqZUvd1DkecFoLo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>626975709517</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ved.Today2</string>
+	<key>PROJECT_ID</key>
+	<string>today2-933dc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>today2-933dc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:626975709517:ios:3c68dfa3b0a80e4b413f04</string>
+</dict>
+</plist>
