@@ -130,11 +130,13 @@ class SecondViewController: UIViewController {
             
         }
         }
+       // print(sortingArr.count)
+     //   print(arr2.count)
         let array1: [Int] = sortingArr
         let array2: [String] = arr2
         let array3: [String] = arr3
-        print(array2.count)
-        print(array1.count)
+      //  print(array2.count)
+    //    print(array1.count)
         
         //WORKING UP TO HERE!!!!!,,,,,,,,,,,,,
         // use zip to combine each (first, n.th) array pair and sort that based on the first
@@ -166,28 +168,32 @@ class SecondViewController: UIViewController {
         let numAscAction = UIAlertAction(title: "By Popularity", style: .default) { [self] (action: UIAlertAction) -> Void in
                     alertController.dismiss(animated: true, completion: nil)
            
-            print(Constants.birthPopDict)
-            
-            if testArrayInt.count == testArrayString.count{
+            let dict = Constants.birthPopDict
+//
+            print(dict["Subhas Chandra Bose"])
+          //  if dict.count == self.aboom.count{
             //    print("yes")
-                /*
-                print(dict);
-                   let d = Dictionary.init(keys: testArrayString, values: testArrayInt)
-                   let results = self.sort(sortArr1:d, arr2:self.aboom, arr3:self.arr)
+                
+                      
+                  
+                let results = self.sort(sortArr1:dict, arr2:self.aboom, arr3:self.arr)
                   // self.countArr = results.sortedArr;
                     self.aboom = results.stringArr;
                     self.arr = results.yearArr;
                     self.tableView.reloadData()
  
- */
-            }else{
-                print("no")
-                
+ 
+        //    }else{
+      //          print("no")
+            /*
+                let pG = PopularityGetter();
+                pG.getBPopularity(strArr: aboom);
                 testArrayInt = [];
                 testArrayString = [];
                 getReady();
                 onSortPressed(self)
-            }
+            //}
+ */
             }
         let numDesAction = UIAlertAction(title: "Reverse Order", style: .default) { (action: UIAlertAction) -> Void in
                     

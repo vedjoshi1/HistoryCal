@@ -144,7 +144,7 @@ struct Constants{
     
     
     static var birthPopDict : [String:Int] = [:]
-    
+    static var deathPopDict : [String:Int] = [:]
     
     
     

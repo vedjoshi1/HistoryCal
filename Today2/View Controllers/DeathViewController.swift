@@ -133,24 +133,18 @@ class DeathViewController: UIViewController{
       
         let numAscAction = UIAlertAction(title: "By Popularity", style: .default) { (action: UIAlertAction) -> Void in
                     alertController.dismiss(animated: true, completion: nil)
-        //  print(self.dictionary);
-            if self.testArrayInt.count == self.testArrayString.count{
+            let dict = Constants.deathPopDict
+            
             //    print("yes")
-             //   let d = Dictionary.init(keys: self.testArrayString, values: self.testArrayInt)
-               //     let results = self.sort(sortArr1:d, arr2:self.aboom, arr3:self.arr)
-            //    print("going")
-                //    self.countArr = results.sortedArr;
-                 //   self.aboom = results.stringArr;
-                   // self.arr = results.yearArr;
-                    //self.tableView.reloadData()
-            }else{
-                print("no")
                 
-                self.testArrayInt = [];
-                self.testArrayString = [];
-           //     self.getPopularity();
-                self.onPressed(self)
-            }
+    //            print(dict)
+                let results = self.sort(sortArr1:dict, arr2:self.aboom, arr3:self.arr)
+            //   print("going")
+                //    self.countArr = results.sortedArr;
+                    self.aboom = results.stringArr;
+                    self.arr = results.yearArr;
+                    self.tableView.reloadData()
+           
             
             
             }

@@ -15,10 +15,10 @@ class PopularityGetter{
     var stringArr : [String] = []
     
     
-    func getPopularity(strArr: [(String)])-> [String:Int]{
+    func getBPopularity(strArr: [(String)])-> [String:Int]{
         
-        print(strArr.count)
-        print("\n\n\n\n\n\n\n\n\\n\n")
+     //   print(strArr.count)
+   //     print("\n\n\n\n\n\n\n\n\\n\n")
         for str in strArr {
             
             popularityCheck(name: str);
@@ -29,13 +29,41 @@ class PopularityGetter{
         //print(intArr)
       //  print(stringArr)
         if(intArr.count == stringArr.count){
-            return Dictionary.init(keys: stringArr, values: intArr)
+            let dict =  Dictionary.init(keys: stringArr, values: intArr)
+            Constants.birthPopDict = dict
+       //     print(dict["Subhas Chandra Bose"])
+            return dict
         }else{
             
-            return getPopularity(strArr: strArr);
+            return getBPopularity(strArr: strArr);
         }
         
     }
+    func getDPopularity(strArr: [(String)])-> [String:Int]{
+        
+     //   print(strArr.count)
+   //     print("\n\n\n\n\n\n\n\n\\n\n")
+        for str in strArr {
+            
+            popularityCheck(name: str);
+            
+        }
+        
+        
+        //print(intArr)
+      //  print(stringArr)
+        if(intArr.count == stringArr.count){
+            let dict =  Dictionary.init(keys: stringArr, values: intArr)
+            Constants.deathPopDict = dict
+            return dict
+        }else{
+            
+            return getDPopularity(strArr: strArr);
+        }
+        
+    }
+    
+    
     
     func popularityCheck(name: String) {
        
@@ -116,7 +144,12 @@ class PopularityGetter{
             
            nameP = name
        }
-    
+    /*
+    print("-------------")
+    print(content);
+    print(name);
+    print("---------------")
+    */
     intArr.append(content)
     stringArr.append(name)
   

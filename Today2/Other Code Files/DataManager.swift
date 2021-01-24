@@ -202,9 +202,10 @@ struct DataManager{
         Constants.birthYearArrGS = years;
         Constants.birthArrGS = text;
         
-        let a = (pG.getPopularity(strArr: text));
+        let a = (pG.getBPopularity(strArr: text));
+       // print(a);
         Constants.birthPopDict = a;
-        
+     //   print(Constants.birthPopDict)
         
         
         
@@ -335,8 +336,9 @@ struct DataManager{
         Constants.deathYearArrGS = years;
         Constants.deathArrGS = text;
         
-      //  let a = (pG.getPopularity(strArr: text));
-    //    Constants.birthPopDict = a;
+        let a = (pG.getDPopularity(strArr: text));
+     //   print(a);
+        Constants.deathPopDict = a;
         
     }
     
