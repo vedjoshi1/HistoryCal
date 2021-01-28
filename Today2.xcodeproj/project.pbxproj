@@ -24,6 +24,7 @@
 		582D5F99257C364B003C5668 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 582D5F97257C364B003C5668 /* LaunchScreen.storyboard */; };
 		582D5FC0257C3695003C5668 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D5FBF257C3695003C5668 /* SecondViewController.swift */; };
 		5834076A25858E3F00022F0F /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5834076925858E3F00022F0F /* EventViewController.swift */; };
+		5847583925C27FE8009EC9B6 /* DPopularityGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5847583825C27FE8009EC9B6 /* DPopularityGetter.swift */; };
 		586E7640258FD0C600E6F6B5 /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E763F258FD0C600E6F6B5 /* DeathViewController.swift */; };
 		58A70D3125AFADE90027CC47 /* PageViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A70D3025AFADE90027CC47 /* PageViewData.swift */; };
 		58A70D9225B661580027CC47 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A70D9125B661580027CC47 /* IntroViewController.swift */; };
@@ -76,6 +77,7 @@
 		582D5FAA257C364C003C5668 /* Today2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Today2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		582D5FBF257C3695003C5668 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5834076925858E3F00022F0F /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		5847583825C27FE8009EC9B6 /* DPopularityGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPopularityGetter.swift; sourceTree = "<group>"; };
 		586E763F258FD0C600E6F6B5 /* DeathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
 		58A70D3025AFADE90027CC47 /* PageViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewData.swift; sourceTree = "<group>"; };
 		58A70D9125B661580027CC47 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				58F051CC259549A7000761AC /* EventDataCleaner.swift */,
 				58A70D3025AFADE90027CC47 /* PageViewData.swift */,
 				582609D925BBDFAE0001D30D /* Dictionary.swift */,
+				5847583825C27FE8009EC9B6 /* DPopularityGetter.swift */,
 				58F7EB2225859B0F003588E5 /* Event.swift */,
 				58F051AE259159B3000761AC /* StringProtocol.swift */,
 				581463C725BCD9110047B804 /* PopularityGetter.swift */,
@@ -326,6 +329,7 @@
 				58F051B925917A1F000761AC /* UILabel.swift in Sources */,
 				582D5F91257C3648003C5668 /* ViewController.swift in Sources */,
 				581463E825BCE42A0047B804 /* DataManager.swift in Sources */,
+				5847583925C27FE8009EC9B6 /* DPopularityGetter.swift in Sources */,
 				581463D525BCE4100047B804 /* DayData.swift in Sources */,
 				582D5F8D257C3648003C5668 /* AppDelegate.swift in Sources */,
 				58F051AF259159B3000761AC /* StringProtocol.swift in Sources */,

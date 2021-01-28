@@ -17,7 +17,7 @@ class DeathViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.reloadData()
         
         testArrayString = [];
         testArrayInt = [];
@@ -134,18 +134,24 @@ class DeathViewController: UIViewController{
         let numAscAction = UIAlertAction(title: "By Popularity", style: .default) { (action: UIAlertAction) -> Void in
                     alertController.dismiss(animated: true, completion: nil)
             let dict = Constants.deathPopDict
-            
-            //    print("yes")
-                
-    //            print(dict)
+         //   print(dict);
+            if(dict.count != 0){
                 let results = self.sort(sortArr1:dict, arr2:self.aboom, arr3:self.arr)
-            //   print("going")
-                //    self.countArr = results.sortedArr;
+           
                     self.aboom = results.stringArr;
                     self.arr = results.yearArr;
                     self.tableView.reloadData()
            
-            
+            }else{
+               
+                
+                self.onPressed(self)
+                let pG = DPopularityGetter()
+                pG.getDPopularity(strArr: self.aboom)
+                print("fuck")
+                
+                
+            }
             
             }
         let numDesAction = UIAlertAction(title: "Reverse", style: .default) { (action: UIAlertAction) -> Void in

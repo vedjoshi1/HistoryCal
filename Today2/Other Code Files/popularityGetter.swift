@@ -1,67 +1,48 @@
+
 //
 //  PopularityGetter.swift
 //  Today2
 //
 //  Created by Ved Joshi on 1/23/21.
 //
-
 import Foundation
 class PopularityGetter{
     
     
-    
+    let lock = NSLock();
     let dayte = Day();
     var intArr : [Int] = []
     var stringArr : [String] = []
-    
+    var dict : [String:Int] = [:]
     
     func getBPopularity(strArr: [(String)])-> [String:Int]{
         
-     //   print(strArr.count)
-   //     print("\n\n\n\n\n\n\n\n\\n\n")
+      //  print(strArr.count)
         for str in strArr {
             
-            popularityCheck(name: str);
+                
+                self.popularityCheck(name: str);
+            
+           
             
         }
         
         
-        //print(intArr)
-      //  print(stringArr)
-        if(intArr.count == stringArr.count){
-            let dict =  Dictionary.init(keys: stringArr, values: intArr)
+        
+        if dict.count >= 4{
+           // print(dict)
             Constants.birthPopDict = dict
-       //     print(dict["Subhas Chandra Bose"])
+       
             return dict
-        }else{
+        }else {
+            print("hereh we")
+            print(dict)
+            return getBPopularity(strArr: strArr)
             
-            return getBPopularity(strArr: strArr);
         }
         
     }
-    func getDPopularity(strArr: [(String)])-> [String:Int]{
-        
-     //   print(strArr.count)
-   //     print("\n\n\n\n\n\n\n\n\\n\n")
-        for str in strArr {
-            
-            popularityCheck(name: str);
-            
-        }
-        
-        
-        //print(intArr)
-      //  print(stringArr)
-        if(intArr.count == stringArr.count){
-            let dict =  Dictionary.init(keys: stringArr, values: intArr)
-            Constants.deathPopDict = dict
-            return dict
-        }else{
-            
-            return getDPopularity(strArr: strArr);
-        }
-        
-    }
+   
     
     
     
@@ -100,25 +81,33 @@ class PopularityGetter{
    
    
     func performPopRequest(urlString: String, name: String){
-     
+     //   print(urlString)
         if let url = URL(string: urlString){
-
-           let  session = URLSession(configuration: .default);
+           // let lock2 = NSLock();
+           
+            
+            let  session = URLSession(configuration: .default);
            let task = session.dataTask(with: url) { (data, response, error) in
-              
+           //   print("task resumed")
                if(error != nil){
                    
                    
                }
               
                if let safedata = data{
-                   self.parsePopJSON(weather: safedata, name: name)
-                
+                  // lock2.unlock()
+               
+                    self.parsePopJSON(weather: safedata, name: name)
                 
                 }
-           }
            
-           task.resume();
+           }
+            lock.lock()
+            task.resume();
+            
+            
+           
+          
            
            
        }
@@ -131,31 +120,32 @@ class PopularityGetter{
    
    func parsePopJSON(weather : Data, name: String) {
        let decoder = JSONDecoder();
-    //   print("here")
+  //     print("here")
        var content = 0;
-       var nameP = "";
+       
+    
        do {
             let doneData = try decoder.decode(PageViewData.self, from: weather)
             content = doneData.items[0].views;
-           nameP = String(doneData.items[0].article)
-           nameP = name.replacingOccurrences(of: "_", with: " ");
+     
            
        } catch{
             
-           nameP = name
+           
        }
-    /*
-    print("-------------")
-    print(content);
-    print(name);
-    print("---------------")
-    */
-    intArr.append(content)
-    stringArr.append(name)
-  
+   
+    dict.updateValue(content, forKey: name)
+    //Constants.birthPopDict = dict
+   // print("-------------")
+   // print(content);
+   // print(name);
+  //  print("---------------")
+    lock.unlock()
+
     
    }
    
    
     
 }
+

@@ -24,7 +24,7 @@ struct DataManager{
        performRequest(urlString: urlstring);
     }
     func performRequest(urlString : String){
-       // print("al")
+     //   print("al")
      
         if let url = URL(string: urlString){
          //   print("beta")
@@ -54,18 +54,26 @@ struct DataManager{
     }
     
     func parseJSON(weather : Data){
+      
         let decoder = JSONDecoder();
         do {
+            
              let doneData = try decoder.decode(DayData.self, from: weather)
             let cont = doneData.query.pages[0].revisions[0].slots.main.content;
-            //print(cont);
+         //   print(cont);
             if(cont.length < 50){
              //   print(cont)
             }
-            
+           
          //   tester(str: interpretData());
-            nestor(str: cont);
             lestor(str: cont)
+            nestor(str: cont);
+            // print("HEREHREHRE")
+          //  print(cont)
+            
+            
+            
+            
             
             omega.clean(str: cont);
         //    print(interpretData());
@@ -87,16 +95,14 @@ struct DataManager{
     
     
     func lestor(str: String){
-     //   print(str);
-   //     let popG = PopularityGetter();
-      
+    
         var final = ""
         var years : [String] = [];
         var text : [String] = [];
-        let pG = PopularityGetter();
+       
     //    var pops : [Int] = [];
         if let index = str.index(of: "==Births==") {
-         //   print("hre")
+         
             let substring = String(str[index...])   // ab
            
             if let index1 = substring.index(of: "==Deaths=="){
@@ -107,7 +113,7 @@ struct DataManager{
             }
           
         }else if let index = str.index(of: "== Births =="){
-       //     print("WHAT THE HELL IS HAPPENING")
+       
             let substring = String(str[index...])   // ab
            
             if let index1 = substring.index(of: "== Deaths =="){
@@ -202,12 +208,12 @@ struct DataManager{
         Constants.birthYearArrGS = years;
         Constants.birthArrGS = text;
         
-        let a = (pG.getBPopularity(strArr: text));
-       // print(a);
-        Constants.birthPopDict = a;
-     //   print(Constants.birthPopDict)
+      
         
-        
+        let pG = PopularityGetter();
+
+        let dict = pG.getBPopularity(strArr: text)
+       
         
     }
     
@@ -223,7 +229,7 @@ struct DataManager{
         var final = "";
         var years : [String] = [];
         var text : [String] = [];
-        var pG = PopularityGetter();
+     
         if let index = str.index(of: "==Deaths==") {
        //     print("heeeeem")
             let substring = String(str[index...])   // ab
@@ -336,9 +342,12 @@ struct DataManager{
         Constants.deathYearArrGS = years;
         Constants.deathArrGS = text;
         
-        let a = (pG.getDPopularity(strArr: text));
-     //   print(a);
-        Constants.deathPopDict = a;
+        
+   
+        let pG = DPopularityGetter();
+       // print("here")
+        let dict = pG.getDPopularity(strArr: text)
+       
         
     }
     

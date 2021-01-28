@@ -41,12 +41,12 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-     //   print("loaded")
-      //  getReady();
+        
         tableView.dataSource = self;
        // print("this is good")
         
+        
+         
   //      dict["abooder"] = 56
         tableView.delegate = self
         tableView.register(UINib(nibName: "SadCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
@@ -167,15 +167,10 @@ class SecondViewController: UIViewController {
       
         let numAscAction = UIAlertAction(title: "By Popularity", style: .default) { [self] (action: UIAlertAction) -> Void in
                     alertController.dismiss(animated: true, completion: nil)
-           
-            let dict = Constants.birthPopDict
-//
-            print(dict["Subhas Chandra Bose"])
-          //  if dict.count == self.aboom.count{
-            //    print("yes")
-                
-                      
-                  
+               
+            dict = Constants.birthPopDict
+                //  print(dict)
+            if(dict.count != 0){
                 let results = self.sort(sortArr1:dict, arr2:self.aboom, arr3:self.arr)
                   // self.countArr = results.sortedArr;
                     self.aboom = results.stringArr;
@@ -185,15 +180,14 @@ class SecondViewController: UIViewController {
  
         //    }else{
       //          print("no")
-            /*
-                let pG = PopularityGetter();
-                pG.getBPopularity(strArr: aboom);
-                testArrayInt = [];
-                testArrayString = [];
-                getReady();
-                onSortPressed(self)
-            //}
- */
+            
+        }else{
+            self.onSortPressed(self)
+            let pG = PopularityGetter()
+            pG.getBPopularity(strArr: aboom)
+            print("fuck")
+            }
+ 
             }
         let numDesAction = UIAlertAction(title: "Reverse Order", style: .default) { (action: UIAlertAction) -> Void in
                     

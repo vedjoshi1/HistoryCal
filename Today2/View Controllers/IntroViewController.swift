@@ -19,14 +19,15 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  clearAll();
+        clearAll();
        // print("erere")
      //   datePicked = false;
         // Do any additional setup after loading the view.
     }
     func clearAll(){
-        Constants.birthArrGS = [];
-        Constants.deathArrGS = [];
+        Constants.birthPopDict = [:]
+        
+            Constants.deathPopDict = [:]
         Constants.eventArrGS = [];
         Constants.birthYearArrGS = [];
         Constants.deathYearArrGS = [];
