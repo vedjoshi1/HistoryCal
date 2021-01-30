@@ -11,7 +11,6 @@
 		581463C825BCD9110047B804 /* PopularityGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581463C725BCD9110047B804 /* PopularityGetter.swift */; };
 		581463D025BCE3DB0047B804 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 581463CF25BCE3DB0047B804 /* Assets.xcassets */; };
 		581463D525BCE4100047B804 /* DayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581463D425BCE4100047B804 /* DayData.swift */; };
-		581463DD25BCE4200047B804 /* DataInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581463DC25BCE4200047B804 /* DataInterpreter.swift */; };
 		581463E725BCE42A0047B804 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581463E425BCE4290047B804 /* Day.swift */; };
 		581463E825BCE42A0047B804 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581463E525BCE4290047B804 /* DataManager.swift */; };
 		581463E925BCE42A0047B804 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581463E625BCE42A0047B804 /* String.swift */; };
@@ -28,6 +27,8 @@
 		586E7640258FD0C600E6F6B5 /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E763F258FD0C600E6F6B5 /* DeathViewController.swift */; };
 		58A70D3125AFADE90027CC47 /* PageViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A70D3025AFADE90027CC47 /* PageViewData.swift */; };
 		58A70D9225B661580027CC47 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A70D9125B661580027CC47 /* IntroViewController.swift */; };
+		58BEF59E25C501E800D68643 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BEF59D25C501E800D68643 /* EventType.swift */; };
+		58BEF5A325C5028900D68643 /* LoadEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BEF5A225C5028900D68643 /* LoadEvents.swift */; };
 		58F051AF259159B3000761AC /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F051AE259159B3000761AC /* StringProtocol.swift */; };
 		58F051B4259179FA000761AC /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F051B3259179FA000761AC /* UIFont.swift */; };
 		58F051B925917A1F000761AC /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F051B825917A1F000761AC /* UILabel.swift */; };
@@ -60,7 +61,6 @@
 		581463C725BCD9110047B804 /* PopularityGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularityGetter.swift; sourceTree = "<group>"; };
 		581463CF25BCE3DB0047B804 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Downloads/AppIcons 3/Assets.xcassets"; sourceTree = "<group>"; };
 		581463D425BCE4100047B804 /* DayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayData.swift; sourceTree = "<group>"; };
-		581463DC25BCE4200047B804 /* DataInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataInterpreter.swift; sourceTree = "<group>"; };
 		581463E425BCE4290047B804 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		581463E525BCE4290047B804 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		581463E625BCE42A0047B804 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -81,6 +81,8 @@
 		586E763F258FD0C600E6F6B5 /* DeathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
 		58A70D3025AFADE90027CC47 /* PageViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewData.swift; sourceTree = "<group>"; };
 		58A70D9125B661580027CC47 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		58BEF59D25C501E800D68643 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
+		58BEF5A225C5028900D68643 /* LoadEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEvents.swift; sourceTree = "<group>"; };
 		58F051AE259159B3000761AC /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		58F051B3259179FA000761AC /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		58F051B825917A1F000761AC /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
@@ -162,9 +164,10 @@
 				58F051AE259159B3000761AC /* StringProtocol.swift */,
 				581463C725BCD9110047B804 /* PopularityGetter.swift */,
 				582609CE25B8DC380001D30D /* Zip3Generator.swift */,
-				581463DC25BCE4200047B804 /* DataInterpreter.swift */,
+				58BEF59D25C501E800D68643 /* EventType.swift */,
 				58F051B3259179FA000761AC /* UIFont.swift */,
 				580A30D4259FD8650024E5F1 /* Reachability.swift */,
+				58BEF5A225C5028900D68643 /* LoadEvents.swift */,
 				58F051B825917A1F000761AC /* UILabel.swift */,
 				581463E525BCE4290047B804 /* DataManager.swift */,
 				581463E425BCE4290047B804 /* Day.swift */,
@@ -318,14 +321,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58BEF5A325C5028900D68643 /* LoadEvents.swift in Sources */,
 				582609CF25B8DC380001D30D /* Zip3Generator.swift in Sources */,
 				58F051B4259179FA000761AC /* UIFont.swift in Sources */,
 				582609DA25BBDFAE0001D30D /* Dictionary.swift in Sources */,
 				581463E925BCE42A0047B804 /* String.swift in Sources */,
 				5834076A25858E3F00022F0F /* EventViewController.swift in Sources */,
-				581463DD25BCE4200047B804 /* DataInterpreter.swift in Sources */,
 				582D5FC0257C3695003C5668 /* SecondViewController.swift in Sources */,
 				581463C825BCD9110047B804 /* PopularityGetter.swift in Sources */,
+				58BEF59E25C501E800D68643 /* EventType.swift in Sources */,
 				58F051B925917A1F000761AC /* UILabel.swift in Sources */,
 				582D5F91257C3648003C5668 /* ViewController.swift in Sources */,
 				581463E825BCE42A0047B804 /* DataManager.swift in Sources */,

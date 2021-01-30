@@ -8,8 +8,8 @@
 import UIKit
 
 class DeathViewController: UIViewController{
-    var arr = Constants.deathYearArrGS
-    var aboom = Constants.deathArrGS;
+   
+    var aboom = Constants.deathEventArrGS;
     var countArr : [(Int)] = [];
     let dayte = Day();
     var testArrayString : [(String)] = [];
@@ -31,15 +31,7 @@ class DeathViewController: UIViewController{
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     
      func sort(sortArr1:[String: Int], arr2:[String], arr3:[String]) -> (stringArr: [String], yearArr:[String], sortedArr:[Int]){
         var sortingArr : [(Int)] = []
@@ -56,7 +48,7 @@ class DeathViewController: UIViewController{
                 
                 
             } else{
-                // print(name);
+               
                  
                  
                     if let index1 = name.index(of: "("){
@@ -64,22 +56,14 @@ class DeathViewController: UIViewController{
                      str = str.trimmingCharacters(in: .whitespaces);
                         
                             sortingArr.append(sortArr1[str] ?? 0);
-                  //          print(str);
-                    //        print(sortArr1[index])
-                      //      print("+++++++++")
-                          
+                 
                        
                      
                     }else{
                         
                        
                             sortingArr.append(sortArr1[name] ?? 0);
-                            
-                      //      print(name);
-                    //        print(sortArr1[index])
-                        //    print("+++++++++")
-                          
-                            
+                      
                         
                        
                     }
@@ -91,9 +75,7 @@ class DeathViewController: UIViewController{
          let array1: [Int] = sortingArr
          let array2: [String] = arr2
          let array3: [String] = arr3
-       //  print(array2.count)
-     //    print(array1.count)
-       
+   
          //WORKING UP TO HERE!!!!!,,,,,,,,,,,,,
          // use zip to combine each (first, n.th) array pair and sort that based on the first
          let offsets = array1.enumerated().sorted { $0.element > $1.element }.map { $0.offset }
@@ -103,13 +85,7 @@ class DeathViewController: UIViewController{
          let sorted2 = offsets.map { array2[$0] }
          let sorted3 = offsets.map { array3[$0] }
          
-     //    print(sorted1)
-       
-         
-        // print(sorted1.count)
-        // print(sorted3)
-         
-       //  print(sorted2)
+    
          return(sorted2, sorted3, sorted1);
      
          
@@ -119,7 +95,7 @@ class DeathViewController: UIViewController{
     
 
     func descendSort(){
-        arr.reverse()
+      
         aboom.reverse()
         
         tableView.reloadData();
@@ -136,6 +112,7 @@ class DeathViewController: UIViewController{
             let dict = Constants.deathPopDict
          //   print(dict);
             if(dict.count != 0){
+                /*
                 let results = self.sort(sortArr1:dict, arr2:self.aboom, arr3:self.arr)
            
                     self.aboom = results.stringArr;
@@ -150,8 +127,9 @@ class DeathViewController: UIViewController{
                 pG.getDPopularity(strArr: self.aboom)
                 print("fuck")
                 
-                
+ */
             }
+ 
             
             }
         let numDesAction = UIAlertAction(title: "Reverse", style: .default) { (action: UIAlertAction) -> Void in
@@ -163,7 +141,7 @@ class DeathViewController: UIViewController{
                 alertController.dismiss(animated: true, completion: nil)
             }
        
-        alertController.addAction(numAscAction)
+   //     alertController.addAction(numAscAction)
         
         alertController.addAction(numDesAction)
         
@@ -175,14 +153,14 @@ class DeathViewController: UIViewController{
 
 extension DeathViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arr.count + 1
+        return aboom.count + 1
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
             as! SadCell
-      //  var i = 0;
+      
         if(indexPath.row == 0){
             
             cell.yearLabel.text = "Year:";
@@ -190,14 +168,14 @@ extension DeathViewController:UITableViewDataSource{
             cell.label.textColor = UIColor.black
             cell.label.attributedText = NSAttributedString(string: cell.label.text!)
 
-            // print("ok coomer")
+            
             return cell;
         }else{
         
         
         
-        cell.yearLabel.text = String(arr[indexPath.row - 1]);
-            cell.label.text = String(aboom[indexPath.row - 1]);
+            cell.yearLabel.text = String(aboom[indexPath.row - 1].year);
+            cell.label.text = String(aboom[indexPath.row - 1].description);
         cell.label.textColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
         cell.label.attributedText = NSAttributedString(string: cell.label.text!, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
             
@@ -232,8 +210,7 @@ extension DeathViewController:UITableViewDelegate{
         
         name = (name.trimmingCharacters(in: .whitespaces));
         name = name.replacingOccurrences(of: " ", with: "_")
-    //    print(name)
-   //     print("-------------------")
+
         
         name = name.folding(options: .diacriticInsensitive,
                                                      locale: Locale.current)

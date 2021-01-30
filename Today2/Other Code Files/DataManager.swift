@@ -66,7 +66,7 @@ struct DataManager{
             }
            
          //   tester(str: interpretData());
-            lestor(str: cont)
+            birthPopulator(str: cont)
             nestor(str: cont);
             // print("HEREHREHRE")
           //  print(cont)
@@ -83,136 +83,18 @@ struct DataManager{
         }
     }
 
-    func interpretData()-> String{
-        let muller =  DataInterpreter();
-        if  muller.read() == nil {
-            print("error big time");
-        }
-        
-        let thom = muller.read();
-        return thom ?? "error";
-    }
+   
     
     
-    func lestor(str: String){
+    func birthPopulator(str: String){
     
-        var final = ""
-        var years : [String] = [];
-        var text : [String] = [];
-       
-    //    var pops : [Int] = [];
-        if let index = str.index(of: "==Births==") {
-         
-            let substring = String(str[index...])   // ab
-           
-            if let index1 = substring.index(of: "==Deaths=="){
-               
-                final = String(substring[..<index1]);
-                
-                
-            }
-          
-        }else if let index = str.index(of: "== Births =="){
-       
-            let substring = String(str[index...])   // ab
-           
-            if let index1 = substring.index(of: "== Deaths =="){
-               
-                final = String(substring[..<index1]);
-                
-                
-            }
-        }
-        
-        
-        
-        
-        if final.index(of: "&ndash") != nil {
-            final = final.replacingOccurrences(of: "&ndash;", with: "++")
-         
-        }else{
-            
-            
-                final = final.replacingOccurrences(of: " – ", with: "++")
-            
-            
-        }
-        
-        for string in final.components(separatedBy: "*"){
-     //      print(string)
-            
-            
-            if let index = string.index(of: "++") {
-                var name = String(string[index...])   // ab
-                
-                let year = String(string[..<index])
-             //   print(year);
-                let alphaNumericSet = year.removeCharacters(from: CharacterSet.decimalDigits.inverted)
-         //       print(alphaNumericSet)
-                
-                
-                
-                if let index = name.index(of: "<ref"){
-                    name = String(name[..<index])
-                    
-                    
-                    
-                }
-                if let index = name.index(of: "<!--"){
-                    name = String(name[..<index])
-                    
-                    
-                    
-                }
-                
-                if let index = name.index(of: "{{c"){
-                    
-                    name = String(name[..<index])
-                  
-                    
-                }
-                
-                    if let index = name.index(of: "|"){
-                        let holder = String(name[..<index])
-                      //  print(holder)
-                        let index2 = name.index(after: index);
-                        let chill = String(name[index2...]);
-                        
-                        
-                        if let bracketIndex = holder.lastIndex(of: "["){
-                            let doneTing = String(holder[..<bracketIndex]);
-                     //       print(holder)
-                            
-                            name = doneTing+chill
-                           
-                        }
-                        
-                        
-                    }
-              
-                let cleanNameString = name.removeCharacters(from: "[]+");
-        //        print(cleanNameString);
-                
-             //   print("--------------")
-                
-                
-             
-                
-                years.append(String(alphaNumericSet));
-                text.append(cleanNameString);
-            }
-            
-        }
-       
-        
-        Constants.birthYearArrGS = years;
-        Constants.birthArrGS = text;
+        LoadEvents.loadEvents(type: EventType.birth, str: str)
         
       
         
-        let pG = PopularityGetter();
+       // let pG = PopularityGetter();
 
-        let dict = pG.getBPopularity(strArr: text)
+     //   let dict = pG.getBPopularity(strArr: text)
        
         
     }
@@ -226,127 +108,10 @@ struct DataManager{
     
     
     func nestor(str: String){
-        var final = "";
-        var years : [String] = [];
-        var text : [String] = [];
-     
-        if let index = str.index(of: "==Deaths==") {
-       //     print("heeeeem")
-            let substring = String(str[index...])   // ab
-         //  print(substring)
-            if let index1 = substring.index(of: "==Holidays and observances=="){
-           //     print("folsknem")
-                final = String(substring[..<index1]);
-                
-                
-            }else  if let index1 = substring.index(of: "== Holidays and observances =="){
-                
-                final = String(substring[..<index1]);
-                
-                
-            }
-          
-        }else  if let index = str.index(of: "== Deaths ==") {
-            let substring = String(str[index...])   // ab
-           
-            if let index1 = substring.index(of: "== Holidays and observances =="){
-                
-                final = String(substring[..<index1]);
-                
-                
-            }
-          
-        }
-        
-        
-        
-        
-   //     print(final)
-        
-        if final.index(of: "&ndash") != nil {
-           // print("this is the issua")
-            final = final.replacingOccurrences(of: "&ndash;", with: "++")
-        }else{
-            
-                final = final.replacingOccurrences(of: " – ", with: "++")
-            
-            
-        }
-        
-        
-        
-        for string in final.components(separatedBy: "*"){
-     //      print(string)
-            
-            
-            if let index = string.index(of: "++") {
-                var name = String(string[index...])   // ab
-                
-                let year = String(string[..<index])
-             //   print(year);
-                let alphaNumericSet = year.removeCharacters(from: CharacterSet.decimalDigits.inverted)
-         //       print(alphaNumericSet)
-                
-                
-             //   print(name)
-                if let index = name.index(of: "<ref"){
-                    name = String(name[..<index])
-               //     print(name)
-                    
-                    
-                }
-                
-                if let index = name.index(of: "<!--"){
-                    name = String(name[..<index])
-                    
-                    
-                    
-                }
-                
-                
-                
-              
-                
-            
-                if let index = name.index(of: "|"){
-                    let holder = String(name[..<index])
-                  //  print(holder)
-                    let index2 = name.index(after: index);
-                    let chill = String(name[index2...]);
-                    
-                    
-                    if let bracketIndex = holder.lastIndex(of: "["){
-                        let doneTing = String(holder[..<bracketIndex]);
-                 //       print(holder)
-                        
-                        name = doneTing+chill
-                       
-                    }
-                    
-                    
-                }
-          
-                
-            //    print(name)
-                
-                let cleanNameString = name.removeCharacters(from: "[]+");
-            //    print(cleanNameString);
-                
-                
-                years.append(String(alphaNumericSet));
-                text.append(cleanNameString);
-            }
-            
-        }
-        
-        Constants.deathYearArrGS = years;
-        Constants.deathArrGS = text;
-        
-        
-   
-        let pG = DPopularityGetter();
+        LoadEvents.loadEvents(type: EventType.death, str: str);
+   //     let pG = DPopularityGetter();
        // print("here")
-        let dict = pG.getDPopularity(strArr: text)
+     //   let dict = pG.getDPopularity(strArr: text)
        
         
     }

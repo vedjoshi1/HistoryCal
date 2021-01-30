@@ -51,91 +51,47 @@ struct Constants{
         }
       }
   
-    static var deathYearArr : [(String)] = [];
-    static var deathArr : [(String)] = [];
-    static var deathYearArrGS : [(String)]{
+   
+    
+    
+    
+    
+    
+    
+    static var deathEvent : [Event] = [];
+    static var deathEventArrGS : [Event]{
         set{
-        //    print("arrived here")
-      //      print(newValue)
-            deathYearArr = newValue;
-    //        print("left here")
-        }
-        get {
-            if(deathYearArr.count == 1){
-                
-                return ["nobody died???"];
-            }else{
-                return deathYearArr
+            deathEvent = newValue
             
-            }
+        }get{
+            
+            
+            return deathEvent
         }
-      }
+        
+        
+    }
     
-    static var deathArrGS : [(String)]{
+    
+    
+    static var birthEvent : [Event] = [];
+    static var birthEventArrGS : [Event]{
         set{
-        //    print("arrived here")
-      //      print(newValue)
-            deathArr = newValue;
-    //        print("left here")
-        }
-        get {
-            if(deathArr.count == 1){
-                
-                return ["nobody died today :)"];
-            }else{
-                return deathArr
             
-            }
-        }
-      }
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    static var birthYearArr : [(String)] = [];
-    static var birthArr : [(String)] = [];
-    static var birthYearArrGS : [(String)]{
-        set{
-        //    print("arrived here")
-      //      print(newValue)
-            birthYearArr = newValue;
-    //        print("left here")
-        }
-        get {
-            if(birthYearArr.count == 1){
-                
-                return ["nobody important born???"];
-            }else{
-                return birthYearArr
+            birthEvent = newValue
             
-            }
-        }
-      }
-    
-    static var birthArrGS : [(String)]{
-        set{
-        //    print("arrived here")
-      //      print(newValue)
-            birthArr = newValue;
-    //        print("left here")
-        }
-        get {
-            if(birthArr.count == 1){
-                
-                return ["nobody died today :)"];
-            }else{
-                return birthArr
+        }get{
             
-            }
+                return birthEvent
+            
+            
+            
         }
-      }
+        
+        
+        
+    }
+   
     
     
     
@@ -150,44 +106,8 @@ struct Constants{
     
     
     
-    
-    static var birthPopArr : [(Int)] = [];
-    static var birthPopNameArr : [(String)] = [];
-    static var birthPopArrGS : [(Int)]{
-        set{
-        //    print("arrived here")
-      //      print(newValue)
-            birthPopArr = newValue;
-    //        print("left here")
-        }
-        get {
-            if(birthYearArr.count == 1){
-                
-                return [0];
-            }else{
-                return birthPopArr
-            
-            }
-        }
-      }
-    
-    static var birthPopNameArrGS : [(String)]{
-        set{
-        //    print("arrived here")
-      //      print(newValue)
-            birthPopNameArr = newValue;
-    //        print("left here")
-        }
-        get {
-            if(birthArr.count == 1){
-                
-                return ["nobody died today :)"];
-            }else{
-                return birthPopNameArr
-            
-            }
-        }
-      }
+   
+      
    
     
     

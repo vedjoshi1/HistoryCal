@@ -29,10 +29,9 @@ class IntroViewController: UIViewController {
         
             Constants.deathPopDict = [:]
         Constants.eventArrGS = [];
-        Constants.birthYearArrGS = [];
-        Constants.deathYearArrGS = [];
+        Constants.deathEventArrGS = [];
         Constants.eventYearArrGS = [];
-        Constants.birthPopNameArr = [];
+        Constants.birthEventArrGS = [];
       //  Constants.birthPopCountArr = [];
         
         

@@ -14,7 +14,7 @@ class PopularityGetter{
     var intArr : [Int] = []
     var stringArr : [String] = []
     var dict : [String:Int] = [:]
-    
+
     func getBPopularity(strArr: [(String)])-> [String:Int]{
         
       //  print(strArr.count)
@@ -130,7 +130,8 @@ class PopularityGetter{
      
            
        } catch{
-            
+        
+        
            
        }
    

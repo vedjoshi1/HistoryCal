@@ -17,8 +17,8 @@ class SecondViewController: UIViewController {
     let dayte = Day();
     var dict : [String:Int] = [:]
     var countArr : [(Int)] = [];
-    var arr = Constants.birthYearArrGS;
-    var aboom = Constants.birthArrGS;
+    var arr = Constants.birthEventArrGS;
+    
      @IBOutlet weak var tableView: UITableView!
  
    
@@ -171,11 +171,11 @@ class SecondViewController: UIViewController {
             dict = Constants.birthPopDict
                 //  print(dict)
             if(dict.count != 0){
-                let results = self.sort(sortArr1:dict, arr2:self.aboom, arr3:self.arr)
+        //        let results = self.sort(sortArr1:dict, arr2:self.aboom, arr3:self.arr)
                   // self.countArr = results.sortedArr;
-                    self.aboom = results.stringArr;
-                    self.arr = results.yearArr;
-                    self.tableView.reloadData()
+          //          self.aboom = results.stringArr;
+              //      self.arr = results.yearArr;
+            //        self.tableView.reloadData()
  
  
         //    }else{
@@ -183,9 +183,9 @@ class SecondViewController: UIViewController {
             
         }else{
             self.onSortPressed(self)
-            let pG = PopularityGetter()
-            pG.getBPopularity(strArr: aboom)
-            print("fuck")
+           // let pG = PopularityGetter()
+       //     pG.getBPopularity(strArr: aboom)
+         
             }
  
             }
@@ -198,7 +198,7 @@ class SecondViewController: UIViewController {
                 alertController.dismiss(animated: true, completion: nil)
             }
        
-            alertController.addAction(numAscAction)
+     //       alertController.addAction(numAscAction)
         
         alertController.addAction(numDesAction)
         
@@ -215,7 +215,7 @@ class SecondViewController: UIViewController {
     
     func descendSort(){
         arr.reverse()
-        aboom.reverse()
+       
         
         tableView.reloadData();
     }
@@ -244,8 +244,8 @@ extension SecondViewController:UITableViewDataSource{
             return cell;
          //   return cell;
         }else{
-            cell.yearLabel.text = String(arr[indexPath.row - 1]);
-            cell.label.text = String(aboom[indexPath.row - 1])
+            cell.yearLabel.text = String(arr[indexPath.row - 1].year);
+            cell.label.text = String(arr[indexPath.row - 1].description)
             cell.label.textColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
             cell.label.attributedText = NSAttributedString(string: cell.label.text!, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
                return cell;

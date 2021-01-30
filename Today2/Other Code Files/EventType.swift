@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum EventType {
+    case birth
+    case death
+    case other
+}
