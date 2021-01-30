@@ -16,13 +16,9 @@ class LoadEvents{
             
         }else if(type == EventType.death){
             deathEvent(str: str)
-            
-            
+            s
         }
-        
-        
     }
-    
     
     static func deathEvent(str: String){
         
