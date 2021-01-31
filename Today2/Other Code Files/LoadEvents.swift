@@ -16,7 +16,7 @@ class LoadEvents{
             
         }else if(type == EventType.death){
             deathEvent(str: str)
-            s
+            
         }
     }
     
@@ -128,7 +128,7 @@ class LoadEvents{
             //    print(cleanNameString);
                 
                 let eve = Event(year1: alphaNumericSet, desc: cleanNameString, eventtype: EventType.death)
-            //    eve.popularityCheck();
+                eve.popularityCheck();
                 events.append(eve)
             }
             
@@ -249,9 +249,9 @@ class LoadEvents{
              //   print("--------------")
                 
                 
-             
-                
-                events.append(Event(year1: alphaNumericSet, desc: cleanNameString, eventtype: EventType.birth))
+                let eve = Event(year1: alphaNumericSet, desc: cleanNameString, eventtype: EventType.birth)
+                eve.popularityCheck()
+                events.append(eve)
               //  print(events.last?.year)
             }
             

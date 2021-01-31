@@ -15,8 +15,7 @@ class SecondViewController: UIViewController {
     var backgroundColor : UIColor?;
     var month : UIColor?;
     let dayte = Day();
-    var dict : [String:Int] = [:]
-    var countArr : [(Int)] = [];
+   
     var arr = Constants.birthEventArrGS;
     
      @IBOutlet weak var tableView: UITableView!
@@ -82,79 +81,11 @@ class SecondViewController: UIViewController {
      
     // Given three sequences, return a sequence of 3-tuples
    
-    func sort(sortArr1:[String: Int],arr2:[String], arr3:[String]) -> (stringArr: [String], yearArr:[String], sortedArr:[Int]){
+    func sort(sortArr:[Event]) -> ([Event]){
        
-          var sortingArr : [(Int)] = []
-        for name in arr2{
-            
-            if let index = name.index(of: ","){
-               var str = String(name[..<index])
-               str = str.trimmingCharacters(in: .whitespaces);
-                sortingArr.append(sortArr1[str] ?? 0);
-                  
-                    
-              
-                
-                
-                
-            } else{
-                // print(name);
-                 
-                 
-                    if let index1 = name.index(of: "("){
-                     var str = String(name[..<index1])
-                     str = str.trimmingCharacters(in: .whitespaces);
-                        
-                            sortingArr.append(sortArr1[str] ?? 0);
-                  //          print(str);
-                    //        print(sortArr1[index])
-                      //      print("+++++++++")
-                          
-                       
-                     
-                    }else{
-                        
-                       
-                            sortingArr.append(sortArr1[name] ?? 0);
-                            
-                      //      print(name);
-                    //        print(sortArr1[index])
-                        //    print("+++++++++")
-                          
-                            
-                        
-                       
-                    }
-
-            
-            
-        }
-        }
-       // print(sortingArr.count)
-     //   print(arr2.count)
-        let array1: [Int] = sortingArr
-        let array2: [String] = arr2
-        let array3: [String] = arr3
-      //  print(array2.count)
-    //    print(array1.count)
+        let descendingStrings = sortArr.sorted { $0.count > $1.count }
         
-        //WORKING UP TO HERE!!!!!,,,,,,,,,,,,,
-        // use zip to combine each (first, n.th) array pair and sort that based on the first
-        let offsets = array1.enumerated().sorted { $0.element > $1.element }.map { $0.offset }
-        
-
-        let sorted1 = offsets.map { array1[$0] }
-        let sorted2 = offsets.map { array2[$0] }
-        let sorted3 = offsets.map { array3[$0] }
-        
-     //   print(sorted1)
-      
-        
-       // print(sorted1.count)
-       // print(sorted3)
-        
-      //  print(sorted2)
-        return(sorted2, sorted3, sorted1);
+        return descendingStrings
     
         
     }
@@ -168,25 +99,19 @@ class SecondViewController: UIViewController {
         let numAscAction = UIAlertAction(title: "By Popularity", style: .default) { [self] (action: UIAlertAction) -> Void in
                     alertController.dismiss(animated: true, completion: nil)
                
-            dict = Constants.birthPopDict
-                //  print(dict)
-            if(dict.count != 0){
-        //        let results = self.sort(sortArr1:dict, arr2:self.aboom, arr3:self.arr)
-                  // self.countArr = results.sortedArr;
-          //          self.aboom = results.stringArr;
-              //      self.arr = results.yearArr;
-            //        self.tableView.reloadData()
+          
+            arr = sort(sortArr: arr);
+            tableView.reloadData();
+            print("am here")
  
- 
-        //    }else{
-      //          print("no")
+        //
             
-        }else{
-            self.onSortPressed(self)
+     //   }else{
+          //  self.onSortPressed(self)
            // let pG = PopularityGetter()
        //     pG.getBPopularity(strArr: aboom)
          
-            }
+         //   }
  
             }
         let numDesAction = UIAlertAction(title: "Reverse Order", style: .default) { (action: UIAlertAction) -> Void in
@@ -198,7 +123,7 @@ class SecondViewController: UIViewController {
                 alertController.dismiss(animated: true, completion: nil)
             }
        
-     //       alertController.addAction(numAscAction)
+            alertController.addAction(numAscAction)
         
         alertController.addAction(numDesAction)
         
