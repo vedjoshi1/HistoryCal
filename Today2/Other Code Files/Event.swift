@@ -124,15 +124,9 @@ class Event{
            
        }
    
-  //  dict.updateValue(content, forKey: name)
-    //Constants.birthPopDict = dict
-    
-    //print("-------------")
-    //print(content);
-    //print(name);
+  
     count = content;
-   // print("---------------")
- //   lock.unlock()
+ 
 
     
    }

@@ -10,7 +10,7 @@ import UIKit
 class IntroViewController: UIViewController {
     let d = Day();
     var dayString1 = "";
-  //  var datePicked = true;
+ var manager = DataManager()
     override func viewWillAppear(_ animated: Bool) {
       //  super.viewDidLoad()
         super.viewWillAppear(animated)
@@ -19,10 +19,25 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !Reachability.isConnectedToNetwork(){
+        //    print("Internet Connection not Available!")
+            showAlert(self);
+          
+            
+            
+        }
+
         clearAll();
-       // print("erere")
-     //   datePicked = false;
-        // Do any additional setup after loading the view.
+        
+        
+        
+        
+        
+        manager.fetchData(query: getQuesryString(sender: datePicker))
+        
+        
+        
+        
     }
     func clearAll(){
         Constants.birthPopDict = [:]
@@ -38,18 +53,10 @@ class IntroViewController: UIViewController {
     }
     
     @IBAction func dateChosen(_ sender: UIDatePicker) {
-      /*
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyMMdd"
-        var string = formatter.string(from: sender.date)
-        string = String(string.suffix(4))
-        let day = string.suffix(2);
-        let mon = Int(string.prefix(2)) ?? 0;
-        
-          let quesryString = ("\(d.getMonth(month: mon))%20\(day)");
-    //    datePicked = true;
-        print(quesryString)
-    */
+        clearAll();
+        print("hambo rambo lambo")
+        manager.fetchData(query: getQuesryString(sender: datePicker));
+    
     }
     func getQuesryString(sender: UIDatePicker) -> String{
   
@@ -68,8 +75,7 @@ class IntroViewController: UIViewController {
           
         
         let quesryString = ("\(d.getMonth(month: mon))%20\(day)");
-    //    datePicked = true;
-     //   print(quesryString)
+    
         return quesryString;
       //  manager.fetchData(query: quesryString);
     }
@@ -99,5 +105,77 @@ class IntroViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func showAlert(_ sender: Any) {
+        let alertController = UIAlertController(title: "PROBLEM:", message:
+            "Internet Connection Unavailable!", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+         
+            
+            if !Reachability.isConnectedToNetwork(){
+               // print("Internet Connection not Available!")//
+               
+                self.showAlert(self);
+                
+            }else{
+                
+                self.viewDidLoad();
+                
+            }
+            
+        }
+        
+            
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    
 
+         
+        
+    }
+
+    @IBAction func birthPicked(_ sender: Any) {
+        if Constants.birthEventArrGS.count == 0{
+            manager = DataManager();
+            manager.fetchData(query: getQuesryString(sender: datePicker))
+            
+            
+        }else{
+            
+            self.performSegue(withIdentifier: "goToBirth", sender: self)
+            
+        }
+        
+        
+        
+        
+    }
+    @IBAction func deathPicked(_ sender: Any) {
+        if Constants.deathEventArrGS.count == 0{
+            
+            manager.fetchData(query: getQuesryString(sender: datePicker))
+            
+            
+        }else{
+            
+            self.performSegue(withIdentifier: "goToDeath", sender: self)
+            
+        }
+        
+        
+    }
+    @IBAction func eventPicked(_ sender: Any) {
+        if Constants.eventArrGS.count == 0{
+            
+            manager.fetchData(query: getQuesryString(sender: datePicker))
+            
+        }else{
+            self.performSegue(withIdentifier: "goToEvent", sender: self)
+            
+            
+        }
+        
+        
+        
+        
+    }
 }
