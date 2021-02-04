@@ -1,11 +1,19 @@
+//
+//  LoadEvents.swift
+//  Today2
+//
+//  Created by Ved Joshi on 1/29/21.
+//
+
 import Foundation
 class LoadEvents{
-    
+    let lock = NSLock();
     static func loadEvents(type:EventType, str:String){
         
         if(type == EventType.birth){
+           
             birthEvent(str: str)
-            
+           
             
         }else if(type == EventType.death){
             deathEvent(str: str)
@@ -123,6 +131,7 @@ class LoadEvents{
                 let eve = Event(year1: alphaNumericSet, desc: cleanNameString, eventtype: EventType.death)
                 eve.popularityCheck();
                 events.append(eve)
+                
             }
             
         }
@@ -244,7 +253,9 @@ class LoadEvents{
                 
                 let eve = Event(year1: alphaNumericSet, desc: cleanNameString, eventtype: EventType.birth)
                 eve.popularityCheck()
-                events.append(eve)
+                
+                
+                events.append(eve);
               //  print(events.last?.year)
             }
             
@@ -253,7 +264,7 @@ class LoadEvents{
         
         Constants.birthEventArrGS = events;
         
-       
+       print("ere")
         
         
     }

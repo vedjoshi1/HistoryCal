@@ -67,7 +67,15 @@ class ViewController: UIViewController {
             index+=1;
         }
        
-       
+        if !Reachability.isConnectedToNetwork(){
+        //    print("Internet Connection not Available!")
+            showAlert(self);
+          
+            
+            
+        }else{
+          //   print("Internet Connection Available!")
+        }
         
       
          //   dateLabel.text = ;
@@ -88,9 +96,48 @@ class ViewController: UIViewController {
         usleep(50)
      //   }
     }
-       
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "birthSegue"){
+            let vc = segue.destination as! SecondViewController;
+            vc.getReady();
+            
+            
+        }
+    }
    
+    
+    
+    
+    
+    
+    
+    @IBAction func showAlert(_ sender: Any) {
+        let alertController = UIAlertController(title: "PROBLEM:", message:
+            "Internet Connection Unavailable!", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+         
+            
+            if !Reachability.isConnectedToNetwork(){
+               // print("Internet Connection not Available!")//
+               
+                self.showAlert(self);
+                
+            }else{
+                
+                self.viewDidLoad();
+                
+            }
+            
+        }
+        
+            
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    
+
+         
+        
+    }
     
 }
 

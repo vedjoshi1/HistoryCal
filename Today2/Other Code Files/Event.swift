@@ -95,10 +95,7 @@ class Event{
            
         }else{
             
-            print("ELSE")
-            print(name)
-            
-            print("ELSE")
+           
         }
         
    }
@@ -123,10 +120,10 @@ class Event{
         
            
        }
-   
-  
+    
     count = content;
- 
+   // print("---------------")
+ //   lock.unlock()
 
     
    }

@@ -65,12 +65,11 @@ struct DataManager{
              //   print(cont)
             }
            
-         //   tester(str: interpretData());
+      
             birthPopulator(str: cont)
             nestor(str: cont);
             // print("HEREHREHRE")
-          //  print(cont)
-            
+             
             
             
             
@@ -89,12 +88,6 @@ struct DataManager{
     func birthPopulator(str: String){
     
         LoadEvents.loadEvents(type: EventType.birth, str: str)
-        
-      
-        
-       // let pG = PopularityGetter();
-
-     //   let dict = pG.getBPopularity(strArr: text)
        
         
     }
@@ -109,8 +102,8 @@ struct DataManager{
     
     func nestor(str: String){
         LoadEvents.loadEvents(type: EventType.death, str: str);
-   //     let pG = DPopularityGetter();
-       // print("here")
+   
+       
      //   let dict = pG.getDPopularity(strArr: text)
        
         

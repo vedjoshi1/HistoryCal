@@ -15,8 +15,7 @@ class SecondViewController: UIViewController {
     var backgroundColor : UIColor?;
     var month : UIColor?;
     let dayte = Day();
-    var dict : [String:Int] = [:]
-    var countArr : [(Int)] = [];
+   
     var arr = Constants.birthEventArrGS;
     
      @IBOutlet weak var tableView: UITableView!
@@ -25,7 +24,16 @@ class SecondViewController: UIViewController {
     
     
     @IBOutlet weak var textLabel: UILabel!
-    
+    func getReady(){
+        
+      //  print(Constants.birthPopDict)
+    //    getPopularity();
+        
+        
+        
+        
+        
+    }
     
    
    
@@ -41,7 +49,23 @@ class SecondViewController: UIViewController {
   //      dict["abooder"] = 56
         tableView.delegate = self
         tableView.register(UINib(nibName: "SadCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
-  
+  //THIS IS WHERE IT CRASHES
+           //   countArr.append(counter)
+       // cell.count = counter;
+     
+        
+        
+        
+        /*
+        self.view.backgroundColor = month!;
+        rgbgetter.getRGB(color: month!);
+        if(isBright(red: rgbgetter.getRed(), green: rgbgetter.getGreen(), blue: rgbgetter.getBlue(), alpha: 4) < 110){
+            
+          
+            textLabel.textColor = UIColor.white;
+            }
+       print("alpha")
+   */
     
     }
     
@@ -57,58 +81,56 @@ class SecondViewController: UIViewController {
      
     // Given three sequences, return a sequence of 3-tuples
    
-    
-     func sort(sortArr:[Event]) -> ([Event]){
+    func sort(sortArr:[Event]) -> ([Event]){
+       
+        let descendingStrings = sortArr.sorted { $0.count > $1.count }
         
-         let descendingStrings = sortArr.sorted { $0.count > $1.count }
-         
-         return descendingStrings
-     
-         
-     }
+        return descendingStrings
     
+        
+    }
    
 
 
     @IBAction func onSortPressed(_ sender: Any) {
         let alertController = UIAlertController(title: "My AlertController", message: "choose your pokemon", preferredStyle: UIAlertController.Style.actionSheet)
 
-              
-                let numAscAction = UIAlertAction(title: "By Popularity", style: .default) { [self] (action: UIAlertAction) -> Void in
-                            alertController.dismiss(animated: true, completion: nil)
-                       
-                  
-                    arr = sort(sortArr: arr);
-                    tableView.reloadData();
-                  
-         
-                //
-                    
-             //   }else{
-                  //  self.onSortPressed(self)
-                   // let pG = PopularityGetter()
-               //     pG.getBPopularity(strArr: aboom)
-                 
-                 //   }
-         
-                    }
-                let numDesAction = UIAlertAction(title: "Reverse Order", style: .default) { (action: UIAlertAction) -> Void in
-                            
-                    self.descendSort();
-                        alertController.dismiss(animated: true, completion: nil)
-                    }
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action: UIAlertAction) -> Void in
-                        alertController.dismiss(animated: true, completion: nil)
-                    }
+      
+        let numAscAction = UIAlertAction(title: "By Popularity", style: .default) { [self] (action: UIAlertAction) -> Void in
+                    alertController.dismiss(animated: true, completion: nil)
                
-                    alertController.addAction(numAscAction)
-                
-                alertController.addAction(numDesAction)
-                
-                    alertController.addAction(cancelAction)
+          
+            arr = sort(sortArr: arr);
+            tableView.reloadData();
+            print("am here")
+ 
+        //
+            
+     //   }else{
+          //  self.onSortPressed(self)
+           // let pG = PopularityGetter()
+       //     pG.getBPopularity(strArr: aboom)
+         
+         //   }
+ 
+            }
+        let numDesAction = UIAlertAction(title: "Reverse Order", style: .default) { (action: UIAlertAction) -> Void in
+                    
+            self.descendSort();
+                alertController.dismiss(animated: true, completion: nil)
+            }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action: UIAlertAction) -> Void in
+                alertController.dismiss(animated: true, completion: nil)
+            }
+       
+            alertController.addAction(numAscAction)
+        
+        alertController.addAction(numDesAction)
+        
+            alertController.addAction(cancelAction)
 
-                self.present(alertController, animated: true, completion: nil)
-                
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
     
