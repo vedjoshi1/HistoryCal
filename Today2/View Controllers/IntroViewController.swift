@@ -52,7 +52,6 @@ class IntroViewController: UIViewController {
     
     @IBAction func datePicked(_ sender: UIDatePicker) {
         clearAll();
-        print("this")
         manager = DataManager();
         manager.fetchData(query: getQuesryString(sender: datePicker))
         
@@ -113,7 +112,8 @@ class IntroViewController: UIViewController {
     }
     @IBAction func eventPressed(_ sender: Any) {
         if(Constants.eventArrGS.count != 0){
-            usleep(50);
+          //  usleep(50);
+            print("gach")
             self.performSegue(withIdentifier: "goToEvent", sender: self)
         }else{
             manager = DataManager()
@@ -125,22 +125,23 @@ class IntroViewController: UIViewController {
     @IBAction func birthPressed(_ sender: Any) {
         
         
-        
-            if(Constants.eventArrGS.count != 0){
-                usleep(50);
+            if(Constants.birthEventArrGS.count != 0){
+               
                 self.performSegue(withIdentifier: "goToBirth", sender: self)
             }else{
                 manager = DataManager()
                 manager.fetchData(query: getQuesryString(sender: datePicker));
                 
             }
+        
+          
     }
     @IBAction func deathPressed(_ sender: UIButton) {
         
         
         
-            if(Constants.eventArrGS.count != 0){
-                usleep(50);
+            if(Constants.deathEventArrGS.count != 0){
+               
                 self.performSegue(withIdentifier: "goToDeath", sender: self)
             }else{
                 manager = DataManager()

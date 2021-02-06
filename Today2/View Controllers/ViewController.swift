@@ -82,7 +82,7 @@ class ViewController: UIViewController {
     
     @IBAction func deathSegueInitiated(_ sender: UIButton) {
      //   if(isOpenToMove){
-            
+            print("heeer")
             self.performSegue(withIdentifier: "deathSegue", sender: self)
         usleep(50)
      //   }
