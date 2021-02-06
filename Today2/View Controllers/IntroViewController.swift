@@ -21,7 +21,21 @@ class IntroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         clearAll();
+        
+        if !Reachability.isConnectedToNetwork(){
+        //    print("Internet Connection not Available!")
+            showAlert(self);
+          
+            
+            
+        }
+        
+        
         manager.fetchData(query: getQuesryString(sender: datePicker));
+        
+        
+        
+        
     }
     func clearAll(){
         Constants.birthPopDict = [:]
@@ -69,30 +83,69 @@ class IntroViewController: UIViewController {
       //  manager.fetchData(query: quesryString);
     }
     
-    @IBAction func continueChosen(_ sender: UIButton) {
+   
+    func showAlert(_ sender: Any) {
+        let alertController = UIAlertController(title: "PROBLEM:", message:
+            "Internet Connection Unavailable!", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+         
+            
+            if !Reachability.isConnectedToNetwork(){
+               // print("Internet Connection not Available!")//
+               
+                self.showAlert(self);
+                
+            }else{
+                
+                self.viewDidLoad();
+                
+            }
+            
+        }
         
-        
-        
+            
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    
+
          
         
-        self.performSegue(withIdentifier: "goToMain", sender: self);
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "goToMain"){
-            let destinationvc = segue.destination as! ViewController;
-           // destinationvc.wasDatePicked =
-            destinationvc.queryString =  getQuesryString(sender: datePicker);
-            destinationvc.dayString = dayString1;
-         }
+    @IBAction func eventPressed(_ sender: Any) {
+        if(Constants.eventArrGS.count != 0){
+            usleep(50);
+            self.performSegue(withIdentifier: "goToEvent", sender: self)
+        }else{
+            manager = DataManager()
+            manager.fetchData(query: getQuesryString(sender: datePicker));
+            
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func birthPressed(_ sender: Any) {
+        
+        
+        
+            if(Constants.eventArrGS.count != 0){
+                usleep(50);
+                self.performSegue(withIdentifier: "goToBirth", sender: self)
+            }else{
+                manager = DataManager()
+                manager.fetchData(query: getQuesryString(sender: datePicker));
+                
+            }
     }
-    */
-
+    @IBAction func deathPressed(_ sender: UIButton) {
+        
+        
+        
+            if(Constants.eventArrGS.count != 0){
+                usleep(50);
+                self.performSegue(withIdentifier: "goToDeath", sender: self)
+            }else{
+                manager = DataManager()
+                manager.fetchData(query: getQuesryString(sender: datePicker));
+                
+            }
+    }
 }
