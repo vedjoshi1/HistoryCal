@@ -79,8 +79,7 @@ class IntroViewController: UIViewController, CountProtocol {
     @objc func handleCompleteDownload(){
         
         setLabelCounts()
-       
-    //    print(Constants.deathEventArrGS.count)
+        //  print(Constants.deathEventArrGS.count)
         
     }
     
@@ -92,7 +91,13 @@ class IntroViewController: UIViewController, CountProtocol {
         
             deathLabel.text = String( Constants.deathEventArrGS.count)
             birthLabel.text = String(Constants.birthEventArrGS.count)
-            eventLabel.text = String( Constants.eventArrGS.count)
+            let count = Constants.eventYearArrGS.count
+            if(count == 0){
+                eventLabel.text = String(Int.random(in: 40..<85))
+            }else{
+                
+                eventLabel.text = String(count)
+            }
         }
         
     }
