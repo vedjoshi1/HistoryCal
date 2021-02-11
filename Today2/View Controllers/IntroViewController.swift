@@ -7,19 +7,45 @@
 
 import UIKit
 
-class IntroViewController: UIViewController {
-    let d = Day();
-    var manager = DataManager();
+class IntroViewController: UIViewController, CountProtocol {
+    func setBLabelText(count: Int) {
+        birthLabel.text = String(count)
+    }
+    
+    func setDLabelText(count: Int) {
+        deathLabel.text = String(count)
+    }
+    
+    func setELabelText(count: Int) {
+        eventLabel.text = String(count);
+    }
+    
+    var d = Day();
+    var manager = DataManager()
     var dayString1 = "";
-  //  var datePicked = true;
+  
+    @IBOutlet weak var deathLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var eventLabel: UILabel!
+    
+    
+    @IBOutlet weak var birthLabel: UILabel!
     override func viewWillAppear(_ animated: Bool) {
       //  super.viewDidLoad()
+        infoLabel.text = "Select a date and explore";
+      
         super.viewWillAppear(animated)
      //   clearAll();
     }
     @IBOutlet weak var datePicker: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
+        manager = DataManager()
+        Constants.dayString = Int(d.getPopDate()) ?? 20210208;
+        
+        
+        
+        infoLabel.text = "Select a date and explore";
         clearAll();
         
         if !Reachability.isConnectedToNetwork(){
@@ -34,9 +60,44 @@ class IntroViewController: UIViewController {
         manager.fetchData(query: getQuesryString(sender: datePicker));
         
         
+        let defaultCenter = NotificationCenter.default
+           defaultCenter.addObserver(self,
+                                     selector: #selector(self.handleCompleteDownload),
+               name: NSNotification.Name(rawValue: "CompleteDownloadNotification"),
+               object: nil)
+      //  usleep(1000)
+       // print("doedfsfdfsdfasfsfsa")
+    //   setLabelCounts()
+        
+        
+        
+        
         
         
     }
+    
+    @objc func handleCompleteDownload(){
+        
+        setLabelCounts()
+       
+    //    print(Constants.deathEventArrGS.count)
+        
+    }
+    
+    
+    func setLabelCounts (){
+      
+        DispatchQueue.main.async { [self] in
+            
+        
+            deathLabel.text = String( Constants.deathEventArrGS.count)
+            birthLabel.text = String(Constants.birthEventArrGS.count)
+            eventLabel.text = String( Constants.eventArrGS.count)
+        }
+        
+    }
+    
+    
     func clearAll(){
         Constants.birthPopDict = [:]
         
@@ -52,9 +113,17 @@ class IntroViewController: UIViewController {
     
     @IBAction func datePicked(_ sender: UIDatePicker) {
         clearAll();
+        infoLabel.text = d.getDate(dates: sender.date);
+     
         manager = DataManager();
+        
         manager.fetchData(query: getQuesryString(sender: datePicker))
         
+        
+        
+     //   usleep(1000)
+       // print("doedfsfdfsdfasfsfsa")
+     //   setLabelCounts()
         
         
     }
@@ -130,6 +199,7 @@ class IntroViewController: UIViewController {
                 self.performSegue(withIdentifier: "goToBirth", sender: self)
             }else{
                 manager = DataManager()
+                
                 manager.fetchData(query: getQuesryString(sender: datePicker));
                 
             }
@@ -149,4 +219,14 @@ class IntroViewController: UIViewController {
                 
             }
     }
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
 }

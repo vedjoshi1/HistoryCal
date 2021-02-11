@@ -40,7 +40,7 @@ class EventViewController: UIViewController {
         tableView.reloadData();
     }
     @IBAction func barButtonPressed(_ sender: Any) {
-        let alertController = UIAlertController(title: "My AlertController", message: "choose your pokemon", preferredStyle: UIAlertController.Style.actionSheet)
+        let alertController = UIAlertController(title: "My AlertController", message: "choose your sort type", preferredStyle: UIAlertController.Style.actionSheet)
 
       
        

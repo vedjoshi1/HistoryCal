@@ -15,13 +15,14 @@ class Event{
     let type : EventType;
     
     var count = 0;
-    
+    var dayString = ""
     
     
     
     
     init(year1:String, desc: String,  eventtype:EventType) {
-        year = year1 
+        year = year1
+     //   dayString = dayte.getPopDate();
         description = desc;
    //     count = counts
         type = eventtype
@@ -30,7 +31,7 @@ class Event{
     
     func popularityCheck() {
        
-        let dayString = (dayte.getPopDate())
+        dayString = String(Constants.dayString)
         var str = description;
         let name = description;
         var urlString = "''"
@@ -55,7 +56,7 @@ class Event{
             
         }
         
-        
+      
         performPopRequest(urlString: urlString, name: str);
         
      
@@ -82,7 +83,7 @@ class Event{
                
                     self.parsePopJSON(weather: safedata, name: name)
                 
-                }
+               }
            
            }
            // lock.lock()
@@ -116,13 +117,13 @@ class Event{
      
            
        } catch{
-        
-        
            
+      //  Constants.dayString -= 1;
+       
        }
     
     count = content;
-   // print("---------------")
+  //  print("---------------")
  //   lock.unlock()
 
     

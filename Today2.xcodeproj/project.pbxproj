@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58058C9425D4A44000571C9D /* Attempter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58058C9325D4A44000571C9D /* Attempter.swift */; };
+		580655B025D101A7003F4D0C /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580655AF25D101A7003F4D0C /* FAQView.swift */; };
+		580655BD25D1028F003F4D0C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580655BC25D1028F003F4D0C /* InfoViewController.swift */; };
 		580A30D5259FD8650024E5F1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A30D4259FD8650024E5F1 /* Reachability.swift */; };
 		581463C825BCD9110047B804 /* PopularityGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581463C725BCD9110047B804 /* PopularityGetter.swift */; };
 		581463D025BCE3DB0047B804 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 581463CF25BCE3DB0047B804 /* Assets.xcassets */; };
@@ -23,6 +26,7 @@
 		582D5F99257C364B003C5668 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 582D5F97257C364B003C5668 /* LaunchScreen.storyboard */; };
 		582D5FC0257C3695003C5668 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D5FBF257C3695003C5668 /* SecondViewController.swift */; };
 		5834076A25858E3F00022F0F /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5834076925858E3F00022F0F /* EventViewController.swift */; };
+		584319A125D48A5B00A869DB /* CountProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584319A025D48A5B00A869DB /* CountProtocol.swift */; };
 		5847583925C27FE8009EC9B6 /* DPopularityGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5847583825C27FE8009EC9B6 /* DPopularityGetter.swift */; };
 		586E7640258FD0C600E6F6B5 /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E763F258FD0C600E6F6B5 /* DeathViewController.swift */; };
 		58A70D3125AFADE90027CC47 /* PageViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A70D3025AFADE90027CC47 /* PageViewData.swift */; };
@@ -57,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58058C9325D4A44000571C9D /* Attempter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attempter.swift; sourceTree = "<group>"; };
+		580655AF25D101A7003F4D0C /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
+		580655BC25D1028F003F4D0C /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		580A30D4259FD8650024E5F1 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		581463C725BCD9110047B804 /* PopularityGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularityGetter.swift; sourceTree = "<group>"; };
 		581463CF25BCE3DB0047B804 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Downloads/AppIcons 3/Assets.xcassets"; sourceTree = "<group>"; };
@@ -77,6 +84,7 @@
 		582D5FAA257C364C003C5668 /* Today2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Today2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		582D5FBF257C3695003C5668 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5834076925858E3F00022F0F /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		584319A025D48A5B00A869DB /* CountProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountProtocol.swift; sourceTree = "<group>"; };
 		5847583825C27FE8009EC9B6 /* DPopularityGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPopularityGetter.swift; sourceTree = "<group>"; };
 		586E763F258FD0C600E6F6B5 /* DeathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
 		58A70D3025AFADE90027CC47 /* PageViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewData.swift; sourceTree = "<group>"; };
@@ -157,15 +165,18 @@
 				58F7EB1D258598A9003588E5 /* Constants.swift */,
 				581463D425BCE4100047B804 /* DayData.swift */,
 				58F051CC259549A7000761AC /* EventDataCleaner.swift */,
+				584319A025D48A5B00A869DB /* CountProtocol.swift */,
 				58A70D3025AFADE90027CC47 /* PageViewData.swift */,
 				582609D925BBDFAE0001D30D /* Dictionary.swift */,
 				5847583825C27FE8009EC9B6 /* DPopularityGetter.swift */,
+				580655AF25D101A7003F4D0C /* FAQView.swift */,
 				58F7EB2225859B0F003588E5 /* Event.swift */,
 				58F051AE259159B3000761AC /* StringProtocol.swift */,
 				581463C725BCD9110047B804 /* PopularityGetter.swift */,
 				582609CE25B8DC380001D30D /* Zip3Generator.swift */,
 				58BEF59D25C501E800D68643 /* EventType.swift */,
 				58F051B3259179FA000761AC /* UIFont.swift */,
+				58058C9325D4A44000571C9D /* Attempter.swift */,
 				580A30D4259FD8650024E5F1 /* Reachability.swift */,
 				58BEF5A225C5028900D68643 /* LoadEvents.swift */,
 				58F051B825917A1F000761AC /* UILabel.swift */,
@@ -183,6 +194,7 @@
 			children = (
 				5834076925858E3F00022F0F /* EventViewController.swift */,
 				582D5F90257C3648003C5668 /* ViewController.swift */,
+				580655BC25D1028F003F4D0C /* InfoViewController.swift */,
 				582D5FBF257C3695003C5668 /* SecondViewController.swift */,
 				586E763F258FD0C600E6F6B5 /* DeathViewController.swift */,
 				58A70D9125B661580027CC47 /* IntroViewController.swift */,
@@ -331,6 +343,9 @@
 				581463C825BCD9110047B804 /* PopularityGetter.swift in Sources */,
 				58BEF59E25C501E800D68643 /* EventType.swift in Sources */,
 				58F051B925917A1F000761AC /* UILabel.swift in Sources */,
+				584319A125D48A5B00A869DB /* CountProtocol.swift in Sources */,
+				580655BD25D1028F003F4D0C /* InfoViewController.swift in Sources */,
+				58058C9425D4A44000571C9D /* Attempter.swift in Sources */,
 				582D5F91257C3648003C5668 /* ViewController.swift in Sources */,
 				581463E825BCE42A0047B804 /* DataManager.swift in Sources */,
 				5847583925C27FE8009EC9B6 /* DPopularityGetter.swift in Sources */,
@@ -343,6 +358,7 @@
 				581463E725BCE42A0047B804 /* Day.swift in Sources */,
 				582D5F8F257C3648003C5668 /* SceneDelegate.swift in Sources */,
 				58F7EB1E258598A9003588E5 /* Constants.swift in Sources */,
+				580655B025D101A7003F4D0C /* FAQView.swift in Sources */,
 				58F7EB2325859B0F003588E5 /* Event.swift in Sources */,
 				58A70D9225B661580027CC47 /* IntroViewController.swift in Sources */,
 				580A30D5259FD8650024E5F1 /* Reachability.swift in Sources */,
@@ -523,11 +539,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VR87F8NANU;
 				INFOPLIST_FILE = Today2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ved.today2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -543,11 +560,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VR87F8NANU;
 				INFOPLIST_FILE = Today2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ved.today2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

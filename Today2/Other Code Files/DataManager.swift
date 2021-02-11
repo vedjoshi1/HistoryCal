@@ -12,10 +12,27 @@ import UIKit
 struct DataManager{
     var popArr : [Int] = [];
     var dict : [String:Int] = [:];
-
+ //   var delegateIVC : IntroViewController;
+    var l = LoadEvents();
 
     var dayte = Day();
-      let omega = EventDataCleaner();
+      var omega = EventDataCleaner();
+   
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     let url = "https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvslots=%2A&rvprop=content&formatversion=2&format=json";
     func fetchData(query: String){
         let urlstring = "\(url)&titles=\(query)";
@@ -70,11 +87,11 @@ struct DataManager{
             nestor(str: cont);
             // print("HEREHREHRE")
              
+            deathPopulator(str: cont)
             
             
             
             
-            omega.clean(str: cont);
         //    print(interpretData());
             //  print(cont);
         } catch  {
@@ -83,12 +100,16 @@ struct DataManager{
     }
 
    
-    
+    func deathPopulator(str:String){
+        
+        
+        omega.clean(str: str)
+    }
     
     func birthPopulator(str: String){
     
         LoadEvents.loadEvents(type: EventType.birth, str: str)
-       
+        
         
     }
     

@@ -14,12 +14,12 @@ struct Day{
     var dayString = ""
  //   var day = 0
     let formatter = DateFormatter()
-    mutating func getDate() -> String{
+    mutating func getDate(dates : Date) -> String{
         
       //  print("true");
         var str = "";
         formatter.dateFormat = "MM/dd/yy";
-        let test = formatter.string(from: date);
+        let test = formatter.string(from: dates);
         let hyphen = CharacterSet(charactersIn: "/")
 
         // 2.
@@ -44,9 +44,9 @@ struct Day{
         
    //     print(mon);
      //   print("-----------")
-        let yearString : String = String(year!);
+      
         let monthString = getMonth(month: Int(month as! String) ?? 0);
-        str = monthString + " " + dayString + getSuffix(day: Int(dayString) ?? 0) + " 20" + yearString;
+        str = monthString + " " + dayString + getSuffix(day: Int(dayString) ?? 0);
         
         
         return str;

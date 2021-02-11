@@ -9,18 +9,20 @@ struct Constants{
 
     static let CellIdentifier = "Cell";
     static let CellNibName = "EventCell"
-    
+ 
    
+    
+    static var dayString = 0;
+    
     
     
     static var eventYearArr : [(String)] = [];
     static var eventArr : [(String)] = [];
     static var eventYearArrGS : [(String)]{
         set{
-        //    print("arrived here")
-      //      print(newValue)
+       
             eventYearArr = newValue;
-    //        print("left here")
+            
         }
         get {
             if(eventYearArr.count == 1){

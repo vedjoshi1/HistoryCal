@@ -8,6 +8,10 @@
 import Foundation
 class LoadEvents{
     let lock = NSLock();
+    
+    
+    
+    
     static func loadEvents(type:EventType, str:String){
         
         if(type == EventType.birth){
@@ -138,7 +142,7 @@ class LoadEvents{
         
         Constants.deathEventArrGS = events;
         
-        
+       
    
         
         
@@ -261,10 +265,10 @@ class LoadEvents{
             
         }
        
-        
+      //  IntroViewController.birthLabel.text = String(events.count)
         Constants.birthEventArrGS = events;
         
-       print("ere")
+     //  print("ere")
         
         
     }
