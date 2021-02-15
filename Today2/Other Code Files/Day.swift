@@ -18,7 +18,12 @@ struct Day{
         
       //  print("true");
         var str = "";
-        formatter.dateFormat = "MM/dd/yy";
+        formatter.dateFormat = "MM";
+        let month = formatter.string(from: dates)
+        
+        formatter.dateFormat = "dd";
+         dayString = formatter.string(from: dates)
+       /*
         let test = formatter.string(from: dates);
         let hyphen = CharacterSet(charactersIn: "/")
 
@@ -34,21 +39,25 @@ struct Day{
         scanner.scanUpToCharacters(from: hyphen, into: &year)    // C
         mon = Int(month as! String) ?? 0;
          dayString = String(day!);
+         
+        */
+        
+        
+        
+        
+        
+        
+        
         if dayString.prefix(1) == "0"{
             
             dayString = String(dayString.suffix(1));
             
         }
-        
-        
-        
-   //     print(mon);
-     //   print("-----------")
-      
+
         let monthString = getMonth(month: Int(month as! String) ?? 0);
         str = monthString + " " + dayString + getSuffix(day: Int(dayString) ?? 0);
         
-        
+       // print(str);
         return str;
     }
     
