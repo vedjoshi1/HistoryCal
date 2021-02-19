@@ -18,29 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umZ-M6-Jhv">
-                                <rect key="frame" x="352" y="20" width="42" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnP-A7-a8L">
-                                <rect key="frame" x="20" y="20" width="273" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="onReturnWithSender:" destination="3ri-zL-NVz" eventType="touchUpInside" id="3lH-l3-1Tk"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9lL-h2-RvA">
-                                <rect key="frame" x="2" y="85" width="412" height="799"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9lL-h2-RvA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hY9-gp-TTf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9lL-h2-RvA" firstAttribute="trailing" secondItem="hY9-gp-TTf" secondAttribute="trailing" id="2YZ-ut-cE3"/>
+                            <constraint firstItem="9lL-h2-RvA" firstAttribute="leading" secondItem="hY9-gp-TTf" secondAttribute="leading" id="Hhm-88-PkY"/>
+                            <constraint firstItem="9lL-h2-RvA" firstAttribute="top" secondItem="hY9-gp-TTf" secondAttribute="top" id="dQL-ay-txl"/>
+                            <constraint firstAttribute="bottom" secondItem="9lL-h2-RvA" secondAttribute="bottom" id="zp6-Fg-yQ8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kCz-cY-5Gx">
                         <barButtonItem key="rightBarButtonItem" title="Sort" id="Gwc-g4-2b6">
@@ -51,7 +41,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="9lL-h2-RvA" id="v1l-qN-rhP"/>
-                        <outlet property="textLabel" destination="umZ-M6-Jhv" id="VSN-RY-vqJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QFo-kM-Cpy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -66,14 +55,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kZN-kx-HB3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kZN-kx-HB3">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="j5s-Dn-FzX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kZN-kx-HB3" firstAttribute="leading" secondItem="j5s-Dn-FzX" secondAttribute="leading" id="1dx-x2-0FI"/>
+                            <constraint firstItem="kZN-kx-HB3" firstAttribute="top" secondItem="j5s-Dn-FzX" secondAttribute="top" id="G5E-DT-gBC"/>
+                            <constraint firstItem="kZN-kx-HB3" firstAttribute="trailing" secondItem="j5s-Dn-FzX" secondAttribute="trailing" id="PY2-7m-yud"/>
+                            <constraint firstAttribute="bottom" secondItem="kZN-kx-HB3" secondAttribute="bottom" id="hlE-0s-WVC"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="doL-Cv-BRH">
                         <barButtonItem key="rightBarButtonItem" title="Sort" id="3D4-y3-wQL">
@@ -88,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXd-Lq-Nfp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4800" y="-615.29235382308855"/>
+            <point key="canvasLocation" x="4798.5507246376819" y="-615.48913043478262"/>
         </scene>
         <!--Event View Controller-->
         <scene sceneID="dhU-hX-Il8">
@@ -98,14 +92,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nJm-eI-QEp">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nJm-eI-QEp">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="avT-y9-Jxe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="nJm-eI-QEp" secondAttribute="bottom" id="X9p-ad-iL4"/>
+                            <constraint firstItem="nJm-eI-QEp" firstAttribute="leading" secondItem="avT-y9-Jxe" secondAttribute="leading" id="jLc-Kh-ioJ"/>
+                            <constraint firstItem="nJm-eI-QEp" firstAttribute="top" secondItem="avT-y9-Jxe" secondAttribute="top" id="oI2-Jj-2fa"/>
+                            <constraint firstItem="nJm-eI-QEp" firstAttribute="trailing" secondItem="avT-y9-Jxe" secondAttribute="trailing" id="uqO-Aa-wwx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Pna-L4-cHS">
                         <barButtonItem key="rightBarButtonItem" title="Sort" id="WQ5-L6-LX1">
