@@ -104,9 +104,9 @@ struct Day{
     func getPopDate() -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
-        let string = formatter.string(from: Date())
+        let string = formatter.string(from: Date().dayBefore)
         let intString = Int(string) ?? 0
-        return String(intString-1);
+        return String(intString);
         
     }
     

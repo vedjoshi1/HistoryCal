@@ -93,7 +93,7 @@ class SecondViewController: UIViewController {
 
 
     @IBAction func onSortPressed(_ sender: Any) {
-        let alertController = UIAlertController(title: "My AlertController", message: "choose your sort type", preferredStyle: UIAlertController.Style.actionSheet)
+        let alertController = UIAlertController(title: "Sort Type Selector", message: "choose your sort type", preferredStyle: UIAlertController.Style.actionSheet)
 
       
         let numAscAction = UIAlertAction(title: "By Popularity", style: .default) { [self] (action: UIAlertAction) -> Void in

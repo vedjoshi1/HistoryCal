@@ -141,6 +141,7 @@ class IntroViewController: UIViewController, CountProtocol {
         
         dayString1 = string
         string = String(string.suffix(4))
+        
         var day = string.suffix(2);
         let mon = Int(string.prefix(2)) ?? 0;
         if(Array(day)[0] == "0"){

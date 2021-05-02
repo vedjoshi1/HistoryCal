@@ -31,6 +31,7 @@
 		586E7640258FD0C600E6F6B5 /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E763F258FD0C600E6F6B5 /* DeathViewController.swift */; };
 		58A70D3125AFADE90027CC47 /* PageViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A70D3025AFADE90027CC47 /* PageViewData.swift */; };
 		58A70D9225B661580027CC47 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A70D9125B661580027CC47 /* IntroViewController.swift */; };
+		58B9896425EC536500F82042 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B9896325EC536500F82042 /* Date.swift */; };
 		58BEF59E25C501E800D68643 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BEF59D25C501E800D68643 /* EventType.swift */; };
 		58BEF5A325C5028900D68643 /* LoadEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BEF5A225C5028900D68643 /* LoadEvents.swift */; };
 		58F051AF259159B3000761AC /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F051AE259159B3000761AC /* StringProtocol.swift */; };
@@ -89,6 +90,7 @@
 		586E763F258FD0C600E6F6B5 /* DeathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
 		58A70D3025AFADE90027CC47 /* PageViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewData.swift; sourceTree = "<group>"; };
 		58A70D9125B661580027CC47 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		58B9896325EC536500F82042 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		58BEF59D25C501E800D68643 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
 		58BEF5A225C5028900D68643 /* LoadEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEvents.swift; sourceTree = "<group>"; };
 		58F051AE259159B3000761AC /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				581463C725BCD9110047B804 /* PopularityGetter.swift */,
 				582609CE25B8DC380001D30D /* Zip3Generator.swift */,
 				58BEF59D25C501E800D68643 /* EventType.swift */,
+				58B9896325EC536500F82042 /* Date.swift */,
 				58F051B3259179FA000761AC /* UIFont.swift */,
 				58058C9325D4A44000571C9D /* Attempter.swift */,
 				580A30D4259FD8650024E5F1 /* Reachability.swift */,
@@ -360,6 +363,7 @@
 				58F7EB1E258598A9003588E5 /* Constants.swift in Sources */,
 				580655B025D101A7003F4D0C /* FAQView.swift in Sources */,
 				58F7EB2325859B0F003588E5 /* Event.swift in Sources */,
+				58B9896425EC536500F82042 /* Date.swift in Sources */,
 				58A70D9225B661580027CC47 /* IntroViewController.swift in Sources */,
 				580A30D5259FD8650024E5F1 /* Reachability.swift in Sources */,
 				58F051BF2593C755000761AC /* SadCell.swift in Sources */,
@@ -545,7 +549,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.1;
+				MARKETING_VERSION = 3.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ved.today2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -567,7 +571,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.1;
+				MARKETING_VERSION = 3.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ved.today2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
