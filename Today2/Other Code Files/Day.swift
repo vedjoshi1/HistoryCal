@@ -14,12 +14,17 @@ struct Day{
     var dayString = ""
  //   var day = 0
     let formatter = DateFormatter()
-    mutating func getDate() -> String{
+    mutating func getDate(dates : Date) -> String{
         
       //  print("true");
         var str = "";
-        formatter.dateFormat = "MM/dd/yy";
-        let test = formatter.string(from: date);
+        formatter.dateFormat = "MM";
+        let month = formatter.string(from: dates)
+        
+        formatter.dateFormat = "dd";
+         dayString = formatter.string(from: dates)
+       /*
+        let test = formatter.string(from: dates);
         let hyphen = CharacterSet(charactersIn: "/")
 
         // 2.
@@ -34,21 +39,25 @@ struct Day{
         scanner.scanUpToCharacters(from: hyphen, into: &year)    // C
         mon = Int(month as! String) ?? 0;
          dayString = String(day!);
+         
+        */
+        
+        
+        
+        
+        
+        
+        
         if dayString.prefix(1) == "0"{
             
             dayString = String(dayString.suffix(1));
             
         }
-        
-        
-        
-   //     print(mon);
-     //   print("-----------")
-        let yearString : String = String(year!);
+
         let monthString = getMonth(month: Int(month as! String) ?? 0);
-        str = monthString + " " + dayString + getSuffix(day: Int(dayString) ?? 0) + " 20" + yearString;
+        str = monthString + " " + dayString + getSuffix(day: Int(dayString) ?? 0);
         
-        
+       // print(str);
         return str;
     }
     
@@ -95,9 +104,9 @@ struct Day{
     func getPopDate() -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
-        let string = formatter.string(from: Date())
+        let string = formatter.string(from: Date().dayBefore)
         let intString = Int(string) ?? 0
-        return String(intString-1);
+        return String(intString);
         
     }
     

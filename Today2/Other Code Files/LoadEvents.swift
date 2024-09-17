@@ -7,22 +7,23 @@
 
 import Foundation
 class LoadEvents{
+    let lock = NSLock();
+    
+    
+    
     
     static func loadEvents(type:EventType, str:String){
         
         if(type == EventType.birth){
+           
             birthEvent(str: str)
-            
+           
             
         }else if(type == EventType.death){
             deathEvent(str: str)
             
-            
         }
-        
-        
     }
-    
     
     static func deathEvent(str: String){
         
@@ -132,15 +133,16 @@ class LoadEvents{
             //    print(cleanNameString);
                 
                 let eve = Event(year1: alphaNumericSet, desc: cleanNameString, eventtype: EventType.death)
-            //    eve.popularityCheck();
+                eve.popularityCheck();
                 events.append(eve)
+                
             }
             
         }
         
         Constants.deathEventArrGS = events;
         
-        
+       
    
         
         
@@ -253,18 +255,20 @@ class LoadEvents{
              //   print("--------------")
                 
                 
-             
+                let eve = Event(year1: alphaNumericSet, desc: cleanNameString, eventtype: EventType.birth)
+                eve.popularityCheck()
                 
-                events.append(Event(year1: alphaNumericSet, desc: cleanNameString, eventtype: EventType.birth))
+                
+                events.append(eve);
               //  print(events.last?.year)
             }
             
         }
        
-        
+      //  IntroViewController.birthLabel.text = String(events.count)
         Constants.birthEventArrGS = events;
         
-       
+     //  print("ere")
         
         
     }

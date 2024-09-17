@@ -7,7 +7,7 @@
 import Foundation
 struct EventDataCleaner {
     
-    
+  //  var delegaetIVC : IntroViewController;
    
     
     
@@ -68,11 +68,16 @@ struct EventDataCleaner {
               //  print("this set is good")
             }
         }
+    
         
-     //   print("hmmmm")
-        //print(text.count)
-       // print(years)
-      //  print(years.count)
+        
+//        delegaetIVC.birthLabel.text = "STINKOPOOPEOO"
+        let defaultCenter = NotificationCenter.default
+        defaultCenter.post(name: NSNotification.Name(rawValue: "CompleteDownloadNotification"),
+            object: nil,
+            userInfo: nil)
+        
+        
         Constants.eventYearArrGS = years;
         Constants.eventArrGS = text;
     }

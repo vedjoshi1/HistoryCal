@@ -33,63 +33,14 @@ class DeathViewController: UIViewController{
 
     
     
-     func sort(sortArr1:[String: Int], arr2:[String], arr3:[String]) -> (stringArr: [String], yearArr:[String], sortedArr:[Int]){
-        var sortingArr : [(Int)] = []
-        for name in arr2{
-            
-            if let index = name.index(of: ","){
-               var str = String(name[..<index])
-               str = str.trimmingCharacters(in: .whitespaces);
-                sortingArr.append(sortArr1[str] ?? 0);
-                  
-                    
-              
-                
-                
-                
-            } else{
-               
-                 
-                 
-                    if let index1 = name.index(of: "("){
-                     var str = String(name[..<index1])
-                     str = str.trimmingCharacters(in: .whitespaces);
-                        
-                            sortingArr.append(sortArr1[str] ?? 0);
-                 
-                       
-                     
-                    }else{
-                        
-                       
-                            sortingArr.append(sortArr1[name] ?? 0);
-                      
-                        
-                       
-                    }
-
-            
-            
-        }
-        }
-         let array1: [Int] = sortingArr
-         let array2: [String] = arr2
-         let array3: [String] = arr3
-   
-         //WORKING UP TO HERE!!!!!,,,,,,,,,,,,,
-         // use zip to combine each (first, n.th) array pair and sort that based on the first
-         let offsets = array1.enumerated().sorted { $0.element > $1.element }.map { $0.offset }
-         
-
-         let sorted1 = offsets.map { array1[$0] }
-         let sorted2 = offsets.map { array2[$0] }
-         let sorted3 = offsets.map { array3[$0] }
-         
+    func sort(sortArr:[Event]) -> ([Event]){
+       
+        let descendingStrings = sortArr.sorted { $0.count > $1.count }
+        
+        return descendingStrings
     
-         return(sorted2, sorted3, sorted1);
-     
-         
-     }
+        
+    }
     
     
     
@@ -104,31 +55,15 @@ class DeathViewController: UIViewController{
     
     
     @IBAction func onPressed(_ sender: Any) {
-        let alertController = UIAlertController(title: "My AlertController", message: "choose your pokemon", preferredStyle: UIAlertController.Style.actionSheet)
+        let alertController = UIAlertController(title: "Sort Type Selector", message: "choose your sort type", preferredStyle: UIAlertController.Style.actionSheet)
 
       
-        let numAscAction = UIAlertAction(title: "By Popularity", style: .default) { (action: UIAlertAction) -> Void in
+        let numAscAction = UIAlertAction(title: "By Popularity", style: .default) { [self] (action: UIAlertAction) -> Void in
                     alertController.dismiss(animated: true, completion: nil)
-            let dict = Constants.deathPopDict
-         //   print(dict);
-            if(dict.count != 0){
-                /*
-                let results = self.sort(sortArr1:dict, arr2:self.aboom, arr3:self.arr)
-           
-                    self.aboom = results.stringArr;
-                    self.arr = results.yearArr;
-                    self.tableView.reloadData()
-           
-            }else{
-               
-                
-                self.onPressed(self)
-                let pG = DPopularityGetter()
-                pG.getDPopularity(strArr: self.aboom)
-                print("fuck")
-                
- */
-            }
+            
+              aboom = sort(sortArr: aboom);
+            tableView.reloadData();
+              print("am here")
  
             
             }
@@ -141,7 +76,7 @@ class DeathViewController: UIViewController{
                 alertController.dismiss(animated: true, completion: nil)
             }
        
-   //     alertController.addAction(numAscAction)
+        alertController.addAction(numAscAction)
         
         alertController.addAction(numDesAction)
         

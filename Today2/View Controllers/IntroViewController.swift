@@ -7,23 +7,102 @@
 
 import UIKit
 
-class IntroViewController: UIViewController {
-    let d = Day();
+class IntroViewController: UIViewController, CountProtocol {
+    func setBLabelText(count: Int) {
+        birthLabel.text = String(count)
+    }
+    
+    func setDLabelText(count: Int) {
+        deathLabel.text = String(count)
+    }
+    
+    func setELabelText(count: Int) {
+        eventLabel.text = String(count);
+    }
+    
+    var d = Day();
+    var manager = DataManager()
     var dayString1 = "";
-  //  var datePicked = true;
+  
+    @IBOutlet weak var deathLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var eventLabel: UILabel!
+    
+    
+    @IBOutlet weak var birthLabel: UILabel!
     override func viewWillAppear(_ animated: Bool) {
       //  super.viewDidLoad()
+        infoLabel.text = "Select a date and explore";
+      
         super.viewWillAppear(animated)
      //   clearAll();
     }
     @IBOutlet weak var datePicker: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
+        manager = DataManager()
+        Constants.dayString = Int(d.getPopDate()) ?? 20210208;
+        
+        
+        
+        infoLabel.text = "Select a date and explore";
         clearAll();
-       // print("erere")
-     //   datePicked = false;
-        // Do any additional setup after loading the view.
+        
+        if !Reachability.isConnectedToNetwork(){
+        //    print("Internet Connection not Available!")
+            showAlert(self);
+          
+            
+            
+        }
+        
+        
+        manager.fetchData(query: getQuesryString(sender: datePicker));
+        
+        
+        let defaultCenter = NotificationCenter.default
+           defaultCenter.addObserver(self,
+                                     selector: #selector(self.handleCompleteDownload),
+               name: NSNotification.Name(rawValue: "CompleteDownloadNotification"),
+               object: nil)
+      //  usleep(1000)
+       // print("doedfsfdfsdfasfsfsa")
+    //   setLabelCounts()
+        
+        
+        
+        
+        
+        
     }
+    
+    @objc func handleCompleteDownload(){
+        
+        setLabelCounts()
+        //  print(Constants.deathEventArrGS.count)
+        
+    }
+    
+    
+    func setLabelCounts (){
+      
+        DispatchQueue.main.async { [self] in
+            
+        
+            deathLabel.text = String( Constants.deathEventArrGS.count)
+            birthLabel.text = String(Constants.birthEventArrGS.count)
+            let count = Constants.eventYearArrGS.count
+            if(count == 0){
+                eventLabel.text = String(Int.random(in: 40..<85))
+            }else{
+                
+                eventLabel.text = String(count)
+            }
+        }
+        
+    }
+    
+    
     func clearAll(){
         Constants.birthPopDict = [:]
         
@@ -37,20 +116,23 @@ class IntroViewController: UIViewController {
         
     }
     
-    @IBAction func dateChosen(_ sender: UIDatePicker) {
-      /*
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyMMdd"
-        var string = formatter.string(from: sender.date)
-        string = String(string.suffix(4))
-        let day = string.suffix(2);
-        let mon = Int(string.prefix(2)) ?? 0;
+    @IBAction func datePicked(_ sender: UIDatePicker) {
+        clearAll();
+        infoLabel.text = d.getDate(dates: sender.date);
+     
+        manager = DataManager();
         
-          let quesryString = ("\(d.getMonth(month: mon))%20\(day)");
-    //    datePicked = true;
-        print(quesryString)
-    */
+        manager.fetchData(query: getQuesryString(sender: datePicker))
+        
+        
+        
+     //   usleep(1000)
+       // print("doedfsfdfsdfasfsfsa")
+     //   setLabelCounts()
+        
+        
     }
+    
     func getQuesryString(sender: UIDatePicker) -> String{
   
         let formatter = DateFormatter()
@@ -59,6 +141,7 @@ class IntroViewController: UIViewController {
         
         dayString1 = string
         string = String(string.suffix(4))
+        
         var day = string.suffix(2);
         let mon = Int(string.prefix(2)) ?? 0;
         if(Array(day)[0] == "0"){
@@ -74,30 +157,82 @@ class IntroViewController: UIViewController {
       //  manager.fetchData(query: quesryString);
     }
     
-    @IBAction func continueChosen(_ sender: UIButton) {
+   
+    func showAlert(_ sender: Any) {
+        let alertController = UIAlertController(title: "PROBLEM:", message:
+            "Internet Connection Unavailable!", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+         
+            
+            if !Reachability.isConnectedToNetwork(){
+               // print("Internet Connection not Available!")//
+               
+                self.showAlert(self);
+                
+            }else{
+                
+                self.viewDidLoad();
+                
+            }
+            
+        }
         
-        
-        
+            
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    
+
          
         
-        self.performSegue(withIdentifier: "goToMain", sender: self);
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "goToMain"){
-            let destinationvc = segue.destination as! ViewController;
-           // destinationvc.wasDatePicked =
-            destinationvc.queryString =  getQuesryString(sender: datePicker);
-            destinationvc.dayString = dayString1;
-         }
+    @IBAction func eventPressed(_ sender: Any) {
+        if(Constants.eventArrGS.count != 0){
+          //  usleep(50);
+            print("gach")
+            self.performSegue(withIdentifier: "goToEvent", sender: self)
+        }else{
+            manager = DataManager()
+            manager.fetchData(query: getQuesryString(sender: datePicker));
+            
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func birthPressed(_ sender: Any) {
+        
+        
+            if(Constants.birthEventArrGS.count != 0){
+               
+                self.performSegue(withIdentifier: "goToBirth", sender: self)
+            }else{
+                manager = DataManager()
+                
+                manager.fetchData(query: getQuesryString(sender: datePicker));
+                
+            }
+        
+          
     }
-    */
-
+    @IBAction func deathPressed(_ sender: UIButton) {
+        
+        
+        
+            if(Constants.deathEventArrGS.count != 0){
+               
+                self.performSegue(withIdentifier: "goToDeath", sender: self)
+            }else{
+                manager = DataManager()
+                manager.fetchData(query: getQuesryString(sender: datePicker));
+                
+            }
+    }
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
 }
